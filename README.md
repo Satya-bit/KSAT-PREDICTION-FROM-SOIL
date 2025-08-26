@@ -76,8 +76,10 @@ NumPy/Pandas (data processing)
 
 **🚀 Future Improvements**
 
-Apply log-transform on target variable to stabilize variance.
+Applying log-transform on target variable to stabilize variance.
 
-Try alternative meta-learners (Ridge, Gradient Boosting) for stacking.
+Trying alternative meta-learners (Ridge, Gradient Boosting) for stacking.
 
 Explore robust losses (Huber, MAE, Tweedie) to handle outliers.
+
+Adding modular coding and converting to full stack application 
