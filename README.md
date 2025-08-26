@@ -1,4 +1,4 @@
-# KSAT-PREDICTION-FROM-SOIL(The project is still in progress.)
+**KSAT-PREDICTION-FROM-SOIL**
 
 ![image](https://github.com/user-attachments/assets/0113f145-a0cd-434e-a62d-0f793868039f)
 
@@ -6,9 +6,13 @@ This project aims on predicting KSAT (Saturated Hydraulic conductivity) from USK
 
 The model achieved RMSE score of 6.74 cm/hr on 10 fold cross validation
 
-# Steps
+**Steps**
+1) Data Preprocessing
 
-1) Cleaned and preprocessed the data.
+Cleaned and prepared the dataset for modeling.
+Scaled/normalized features where necessary to ensure smooth optimization.
+Selected features
+Handled missing values and ensured categorical/numerical features were properly encoded.
 
 2) Removed outliers using IQR andfilled the misisng values using Iterative imputer from sklearn library.
 
@@ -20,10 +24,60 @@ The model achieved RMSE score of 6.74 cm/hr on 10 fold cross validation
 
  ![image](https://github.com/user-attachments/assets/6a5eaeac-7d34-4313-b43f-eeda6175ec7a)
 
-4) Future plans- Modularise the entire code in pipelines from data ingestion to validation, Streamlit for frontend, Grafana for monitoring shift and GCP for deployment 
+4. Model Training & Evaluation
 
-![image](https://github.com/user-attachments/assets/b62fac5f-1da8-4aa6-988e-66decdc2441f)
+Performed cross-validation (10-fold) to estimate generalization performance.
 
-![image](https://github.com/user-attachments/assets/59461acb-0eb4-4047-8a22-0556b53874f8)
+Evaluated the model using RMSE (Root Mean Squared Error) as the main metric.
 
-![image](https://github.com/user-attachments/assets/7d8ccc8c-865e-4478-83e1-d534d497e682)
+Compared ensemble results against individual base models and baselines.
+
+5. Residual Analysis
+
+Plotted residuals vs fitted values to check heteroscedasticity.
+
+Analyzed distribution of residuals to assess normality and detect outliers.
+
+Plotted actual vs predicted values to visualize fit quality.
+
+6. Insights
+
+The ensemble model significantly reduced error compared to individual learners.
+
+Most predictions were close to actual values, though variance increased for higher target values.
+
+Residual analysis revealed a strong peak around zero but with some heavy tails (outliers).
+
+**📊 Results**
+
+Cross-Validation RMSE: 6.7347 cm/hr
+
+Test RMSE: (Add final test RMSE here)
+
+Plots show good alignment between predicted and actual values, with most residuals clustered around zero.
+
+**🛠️ Tech Stack**
+
+Python
+
+scikit-learn (StackingRegressor, ElasticNet, pipelines)
+
+XGBoost
+
+LightGBM
+
+CatBoost
+
+Optuna (hyperparameter tuning)
+
+Matplotlib/Seaborn (visualizations)
+
+NumPy/Pandas (data processing)
+
+**🚀 Future Improvements**
+
+Apply log-transform on target variable to stabilize variance.
+
+Try alternative meta-learners (Ridge, Gradient Boosting) for stacking.
+
+Explore robust losses (Huber, MAE, Tweedie) to handle outliers.
