@@ -4,7 +4,7 @@
 
 This project aims on predicting KSAT (Saturated Hydraulic conductivity) from USKSAT soil data which is responsible for how fast the water moves in the depth of soil. 
 
-The model achieved RMSE score of 6.74 cm/hr on 10 fold cross validation
+The model achieved RMSE score of 6.86 cm/hr on 10 fold cross validation
 
 **Steps**
 1) Data Preprocessing
